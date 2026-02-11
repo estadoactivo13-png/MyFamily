@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Corporación Deportiva y Recreativa My Family</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Tailwind CSS (CDN para funcionamiento inmediato en archivo único) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brandPink: '#E62E84',
+                        brandBlue: '#3ABBDD',
+                        brandDark: '#1a1a1a',
+                    },
+                    fontFamily: {
+                        sans: ['Open Sans', 'sans-serif'],
+                        heading: ['Montserrat', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            scroll-behavior: smooth;
+        }
+        .gradient-text {
+            background: linear-gradient(90deg, #E62E84, #3ABBDD);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .gradient-bg {
+            background: linear-gradient(135deg, #E62E84 0%, #3ABBDD 100%);
+        }
+        /* Modal Transitions */
+        .modal {
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease-in-out;
+        }
+        .modal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        .modal-content {
+            transform: scale(0.9);
+            transition: all 0.3s ease-in-out;
+        }
+        .modal.active .modal-content {
+            transform: scale(1);
+        }
+        
+        /* Table responsive styling */
+        .table-container {
+            overflow-x: auto;
+        }
+        th, td {
+            min-width: 120px;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-700 font-sans antialiased">
+
+    <!-- Header / Navbar -->
+    <header class="bg-white shadow-sm sticky top-0 z-40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex flex-col md:flex-row items-center justify-between">
+            <div class="flex items-center space-x-4 mb-4 md:mb-0">
+
+
+                <!-- Logo Container -->
+
+
+               <div class="w-24 h-24 flex items-center justify-center overflow-hidden">
+  <img 
+    src="Logo MyFamily.png" 
+    onerror="this.style.display='none'; this.nextElementSibling.style.display='block'" 
+    alt="Logo My Family" 
+    class="w-full h-full object-contain scale-110" 
+  >
+  <span class="text-brandPink font-bold text-xs text-center hidden">LOGO</span>
+</div>
+
+
+
+
+                <div class="text-center md:text-left">
+                    <h1 class="font-heading font-bold text-xl md:text-2xl text-gray-800 leading-tight">
+                        Corporación Deportiva y <br><span class="text-brandBlue">Recreativa My Family</span>
+                    </h1>
+                </div>
+            </div>
+            <nav class="flex space-x-6 font-heading font-semibold text-sm">
+                <a href="#servicios" class="hover:text-brandPink transition">Servicios</a>
+                <a href="#planes" class="hover:text-brandPink transition">Planes</a>
+                <a href="#contacto" class="hover:text-brandPink transition">Contacto</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative bg-white py-16 lg:py-24 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 text-center relative z-10">
+            <h2 class="font-heading text-4xl md:text-5xl font-bold mb-6 text-gray-900">
+                Bienestar My Family <span class="text-brandPink">2026</span>
+            </h2>
+            <p class="text-xl text-gray-600 max-w-2xl mx-auto mb-8">
+                Evolucionamos hacia una formación integral: <br>
+                <strong class="text-brandBlue">Mente</strong>, <strong class="text-brandBlue">Academia</strong> y <strong class="text-brandBlue">Familia</strong>.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#planes" class="px-8 py-3 bg-brandPink text-white font-bold rounded-full shadow-lg hover:bg-pink-600 transition transform hover:-translate-y-1">
+                    Ver Planes
+                </a>
+                <button onclick="openNeuroModal()" class="px-8 py-3 border-2 border-brandBlue text-brandBlue font-bold rounded-full hover:bg-brandBlue hover:text-white transition transform hover:-translate-y-1">
+                    Test Neuro-Salto
+                </button>
+            </div>
+        </div>
+        <!-- Decorative blobs -->
+        <div class="absolute top-0 left-0 w-64 h-64 bg-pink-100 rounded-full mix-blend-multiply filter blur-3xl opacity-50 -translate-x-1/2 -translate-y-1/2"></div>
+        <div class="absolute bottom-0 right-0 w-64 h-64 bg-blue-100 rounded-full mix-blend-multiply filter blur-3xl opacity-50 translate-x-1/2 translate-y-1/2"></div>
+    </section>
+
+    <!-- Servicios Section -->
+    <section id="servicios" class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-12">
+                <h3 class="font-heading text-3xl font-bold text-gray-800">Nuestro Ecosistema de Bienestar</h3>
+                <div class="w-24 h-1 bg-brandPink mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Servicio 1 -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition border-t-4 border-brandPink group">
+                    <div class="w-12 h-12 bg-pink-50 text-brandPink rounded-lg flex items-center justify-center mb-4 text-2xl group-hover:bg-brandPink group-hover:text-white transition">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h4 class="font-heading font-bold text-lg mb-2">Psicología de Alto Rendimiento</h4>
+                    <p class="text-sm text-gray-500 mb-4 line-clamp-3">Acceso a sesiones individuales y talleres de inteligencia emocional.</p>
+                    <button onclick="openModal('modal-psico')" class="text-brandBlue font-semibold text-sm hover:underline">Ver detalles</button>
+                </div>
+
+                <!-- Servicio 2 -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition border-t-4 border-brandBlue group">
+                    <div class="w-12 h-12 bg-blue-50 text-brandBlue rounded-lg flex items-center justify-center mb-4 text-2xl group-hover:bg-brandBlue group-hover:text-white transition">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h4 class="font-heading font-bold text-lg mb-2">Apoyo Psicopedagógico</h4>
+                    <p class="text-sm text-gray-500 mb-4 line-clamp-3">Ayudamos a organizar el tiempo escolar y mejorar la concentración.</p>
+                    <button onclick="openModal('modal-pedago')" class="text-brandPink font-semibold text-sm hover:underline">Ver detalles</button>
+                </div>
+
+                <!-- Servicio 3 -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition border-t-4 border-brandPink group">
+                    <div class="w-12 h-12 bg-pink-50 text-brandPink rounded-lg flex items-center justify-center mb-4 text-2xl group-hover:bg-brandPink group-hover:text-white transition">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <h4 class="font-heading font-bold text-lg mb-2">Clases de Inglés</h4>
+                    <p class="text-sm text-gray-500 mb-4 line-clamp-3">Clases particulares con especialistas bajo convenios exclusivos.</p>
+                    <button onclick="openModal('modal-ingles')" class="text-brandBlue font-semibold text-sm hover:underline">Ver detalles</button>
+                </div>
+
+                <!-- Servicio 4 -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition border-t-4 border-brandBlue group">
+                    <div class="w-12 h-12 bg-blue-50 text-brandBlue rounded-lg flex items-center justify-center mb-4 text-2xl group-hover:bg-brandBlue group-hover:text-white transition">
+                        <i class="fas fa-scale-balanced"></i>
+                    </div>
+                    <h4 class="font-heading font-bold text-lg mb-2">Respaldo Legal y Físico</h4>
+                    <p class="text-sm text-gray-500 mb-4 line-clamp-3">Asesorías legales gratuitas y convenios de gimnasio.</p>
+                    <button onclick="openModal('modal-legal')" class="text-brandPink font-semibold text-sm hover:underline">Ver detalles</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tabla de Planes -->
+    <section id="planes" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-12">
+                <h3 class="font-heading text-3xl font-bold text-gray-800">Elige tu Plan Ideal</h3>
+                <p class="text-gray-500 mt-2">Inversión en el futuro de tu familia</p>
+            </div>
+
+            <div class="table-container rounded-2xl shadow-lg border border-gray-100 overflow-hidden">
+                <table class="w-full text-left border-collapse">
+                    <thead>
+                        <tr class="bg-gray-800 text-white text-sm uppercase tracking-wider">
+                            <th class="p-4 font-semibold">Beneficio</th>
+                            <th class="p-4 font-semibold bg-gray-700">Plan Base</th>
+                            <th class="p-4 font-semibold bg-brandPink relative">
+                                Plan Bienestar
+                                <span class="absolute top-0 right-0 bg-yellow-400 text-black text-[10px] px-2 py-1 font-bold">RECOMENDADO</span>
+                            </th>
+                            <th class="p-4 font-semibold bg-brandBlue">Plan Élite Integral</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-sm text-gray-700 divide-y divide-gray-200">
+                        <tr class="bg-gray-50 font-bold">
+                            <td class="p-4">Mensualidad Total</td>
+                            <td class="p-4 text-lg">$60.000</td>
+                            <td class="p-4 text-lg text-brandPink">$75.000</td>
+                            <td class="p-4 text-lg text-brandBlue">$90.000</td>
+                        </tr>
+                        <tr>
+                            <td class="p-4">Tamizaje Neuro-Salto</td>
+                            <td class="p-4"><i class="fas fa-check text-green-500"></i> Incluido</td>
+                            <td class="p-4"><i class="fas fa-check text-green-500"></i> Incluido</td>
+                            <td class="p-4 font-bold text-brandBlue"><i class="fas fa-star"></i> Análisis Profundo</td>
+                        </tr>
+                        <tr>
+                            <td class="p-4">Psicología Individual</td>
+                            <td class="p-4">$40.000 (Adicional)</td>
+                            <td class="p-4 font-bold text-green-600">COSTO $0 (A solicitud)</td>
+                            <td class="p-4 font-bold text-green-600">COSTO $0 (Incluida)</td>
+                        </tr>
+                        <tr>
+                            <td class="p-4">Asesoría Psicopedagógica</td>
+                            <td class="p-4 text-gray-400"><i class="fas fa-times"></i> No incluye</td>
+                            <td class="p-4">1 sesión al mes</td>
+                            <td class="p-4">Acceso Total (4 al mes)</td>
+                        </tr>
+                        <tr>
+                            <td class="p-4">Talleres para Padres</td>
+                            <td class="p-4">1 al semestre</td>
+                            <td class="p-4">3 al semestre</td>
+                            <td class="p-4">3 sem. + 2 Personalizadas</td>
+                        </tr>
+                        <tr>
+                            <td class="p-4">Descuento Inglés</td>
+                            <td class="p-4">Precio Pleno</td>
+                            <td class="p-4">10% Descuento</td>
+                            <td class="p-4">20% Descuento</td>
+                        </tr>
+                        <tr>
+                            <td class="p-4">Eval. Neuropsicológica</td>
+                            <td class="p-4 text-gray-400">No incluye</td>
+                            <td class="p-4">Descuento Especial</td>
+                            <td class="p-4 font-bold">GRATIS (1 vez al año)</td>
+                        </tr>
+                        <tr>
+                            <td class="p-4">Asesoría Legal</td>
+                            <td class="p-4">30 min gratis</td>
+                            <td class="p-4">30 min + 10% desc.</td>
+                            <td class="p-4">30 min + 10% desc.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Mobile Plan Tip -->
+            <div class="mt-8 bg-blue-50 p-6 rounded-xl border border-blue-100">
+                <h4 class="font-bold text-brandBlue mb-2"><i class="fas fa-lightbulb"></i> ¿Cómo elegir?</h4>
+                <p class="text-sm text-gray-600 mb-2"><strong>Plan Bienestar / Élite:</strong> Opción más rentable si buscas tranquilidad total. Sesiones ya cubiertas.</p>
+                <p class="text-sm text-gray-600"><strong>Plan Base + Cupo:</strong> Puedes pagar un "Cupo de Bienestar" ($15.000 único) para congelar citas de psicología a $25.000.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Neuro Salto Section -->
+    <section class="py-20 bg-gray-900 text-white relative overflow-hidden">
+        <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
+        <div class="max-w-4xl mx-auto px-4 text-center relative z-10">
+            <h2 class="font-heading text-3xl md:text-4xl font-bold mb-6">Test Neuro-Salto</h2>
+            <div class="bg-gray-800 p-6 rounded-xl mb-8 border border-gray-700 inline-block">
+                <p class="text-yellow-400 font-bold mb-2"><i class="fas fa-exclamation-triangle"></i> REGLA DE ORO</p>
+                <p class="text-gray-300 text-sm md:text-base">
+                    Al realizar el test, por favor <strong>DÉJALO SOLO</strong>. <br>
+                    Necesitamos conocer su perfil real para poder ayudarle a ganar. <br>
+                    Si recibe ayuda, el diagnóstico no será efectivo.
+                </p>
+            </div>
+            <br>
+            <button onclick="openNeuroModal()" class="px-10 py-4 bg-brandPink text-white font-bold rounded-full shadow-[0_0_20px_rgba(230,46,132,0.5)] hover:bg-white hover:text-brandPink transition duration-300 transform hover:scale-105">
+                Acceder al Test <i class="fas fa-lock ml-2"></i>
+            </button>
+        </div>
+    </section>
+
+    <!-- Contacto Section -->
+    <section id="contacto" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <!-- Info -->
+                <div>
+                    <h3 class="font-heading text-3xl font-bold text-gray-800 mb-6">Contáctanos</h3>
+                    <p class="text-gray-600 mb-8">Estamos listos para atenderte y resolver tus dudas sobre el nuevo plan de beneficios.</p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center text-brandBlue mt-1">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="ml-4">
+                                <p class="text-xs text-gray-500 uppercase font-bold">Teléfono Fijo</p>
+                                <p class="font-semibold">604 800 41 41</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start">
+                            <div class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center text-green-600 mt-1">
+                                <i class="fab fa-whatsapp"></i>
+                            </div>
+                            <div class="ml-4">
+                                <p class="text-xs text-gray-500 uppercase font-bold">WhatsApp Corporativo</p>
+                                <p class="font-semibold">313 222 1066</p>
+                                <a href="https://wa.me/573132221066" target="_blank" class="text-xs text-green-600 underline font-bold">Enviar mensaje ahora</a>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start">
+                            <div class="w-10 h-10 bg-pink-100 rounded-full flex items-center justify-center text-brandPink mt-1">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="ml-4">
+                                <p class="text-xs text-gray-500 uppercase font-bold">Correo Electrónico</p>
+                                <p class="font-semibold break-all">c.myfamily@proton.me</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start">
+                            <div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center text-brandBlue mt-1">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="ml-4">
+                                <p class="text-xs text-gray-500 uppercase font-bold">Lugar de Entrenamiento</p>
+                                <p class="font-semibold">Pista de Patinaje Francisco Antonio Zea</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Map -->
+                <div class="h-80 lg:h-auto rounded-2xl overflow-hidden shadow-lg border border-gray-200">
+                    <iframe 
+                        width="100%" 
+                        height="100%" 
+                        frameborder="0" 
+                        scrolling="no" 
+                        marginheight="0" 
+                        marginwidth="0" 
+                        src="https://maps.google.com/maps?q=Pista+de+Patinaje+Francisco+Antonio+Zea&t=&z=15&ie=UTF8&iwloc=&output=embed">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white pt-12 pb-6">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <h4 class="font-heading font-bold text-xl mb-4">Corporación My Family</h4>
+            <div class="w-12 h-1 bg-brandPink mx-auto mb-8 rounded-full"></div>
+            
+            <div class="border-t border-gray-700 pt-6 flex flex-col md:flex-row justify-between items-center text-sm text-gray-400">
+                <p>&copy; 2026 Todos los derechos reservados.</p>
+                <div class="mt-4 md:mt-0 flex items-center gap-2">
+                    <span>Desarrollado por <strong class="text-white">Andrés Urrea</strong></span>
+                    <a href="https://wa.me/56930763222" target="_blank" class="bg-green-600 text-white px-3 py-1 rounded-full text-xs font-bold hover:bg-green-500 transition flex items-center gap-1">
+                        <i class="fab fa-whatsapp"></i> Contactar Dev
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- MODALES -->
+
+    <!-- Modal Servicio: Psicologia -->
+    <div id="modal-psico" class="modal fixed inset-0 z-50 flex items-center justify-center p-4 bg-black bg-opacity-50">
+        <div class="modal-content bg-white rounded-2xl shadow-2xl max-w-md w-full p-6 relative">
+            <button onclick="closeModal('modal-psico')" class="absolute top-4 right-4 text-gray-400 hover:text-gray-800"><i class="fas fa-times text-xl"></i></button>
+            <div class="text-brandPink text-3xl mb-4"><i class="fas fa-brain"></i></div>
+            <h3 class="font-heading text-xl font-bold mb-2">Psicología de Alto Rendimiento</h3>
+            <p class="text-gray-600">Acceso a sesiones individuales y talleres de inteligencia emocional para que el 80% del éxito (la mente) esté asegurado.</p>
+        </div>
+    </div>
+
+    <!-- Modal Servicio: Pedagogia -->
+    <div id="modal-pedago" class="modal fixed inset-0 z-50 flex items-center justify-center p-4 bg-black bg-opacity-50">
+        <div class="modal-content bg-white rounded-2xl shadow-2xl max-w-md w-full p-6 relative">
+            <button onclick="closeModal('modal-pedago')" class="absolute top-4 right-4 text-gray-400 hover:text-gray-800"><i class="fas fa-times text-xl"></i></button>
+            <div class="text-brandBlue text-3xl mb-4"><i class="fas fa-graduation-cap"></i></div>
+            <h3 class="font-heading text-xl font-bold mb-2">Apoyo Psicopedagógico</h3>
+            <p class="text-gray-600">¡No más estrés por las tareas! Ayudamos a los deportistas a organizar su tiempo escolar, mejorar la concentración y técnicas de estudio para que brillen tanto en el colegio como en el patinaje.</p>
+        </div>
+    </div>
+
+    <!-- Modal Servicio: Ingles -->
+    <div id="modal-ingles" class="modal fixed inset-0 z-50 flex items-center justify-center p-4 bg-black bg-opacity-50">
+        <div class="modal-content bg-white rounded-2xl shadow-2xl max-w-md w-full p-6 relative">
+            <button onclick="closeModal('modal-ingles')" class="absolute top-4 right-4 text-gray-400 hover:text-gray-800"><i class="fas fa-times text-xl"></i></button>
+            <div class="text-brandPink text-3xl mb-4"><i class="fas fa-comments"></i></div>
+            <h3 class="font-heading text-xl font-bold mb-2">Clases de Inglés</h3>
+            <p class="text-gray-600">Acceso a clases particulares con especialistas bajo convenios de descuento exclusivos (hasta un 20% de ahorro) para potenciar su futuro internacional.</p>
+        </div>
+    </div>
+
+    <!-- Modal Servicio: Legal -->
+    <div id="modal-legal" class="modal fixed inset-0 z-50 flex items-center justify-center p-4 bg-black bg-opacity-50">
+        <div class="modal-content bg-white rounded-2xl shadow-2xl max-w-md w-full p-6 relative">
+            <button onclick="closeModal('modal-legal')" class="absolute top-4 right-4 text-gray-400 hover:text-gray-800"><i class="fas fa-times text-xl"></i></button>
+            <div class="text-brandBlue text-3xl mb-4"><i class="fas fa-scale-balanced"></i></div>
+            <h3 class="font-heading text-xl font-bold mb-2">Respaldo Legal y Físico</h3>
+            <p class="text-gray-600">Asesorías legales gratuitas para la familia y convenios con Progress Trainning para que los padres también mantengan un estilo de vida saludable.</p>
+        </div>
+    </div>
+
+    <!-- Modal PASSWORD Neuro Salto -->
+    <div id="modal-neuro" class="modal fixed inset-0 z-50 flex items-center justify-center p-4 bg-black bg-opacity-80 backdrop-blur-sm">
+        <div class="modal-content bg-white rounded-2xl shadow-2xl max-w-sm w-full p-8 relative text-center">
+            <button onclick="closeNeuroModal()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-800"><i class="fas fa-times text-xl"></i></button>
+            
+            <div class="w-16 h-16 bg-brandPink rounded-full flex items-center justify-center text-white text-2xl mx-auto mb-4">
+                <i class="fas fa-lock"></i>
+            </div>
+            
+            <h3 class="font-heading text-xl font-bold mb-2 text-gray-800">Acceso Restringido</h3>
+            <p class="text-sm text-gray-500 mb-6">Ingresa la contraseña para acceder al tamizaje.</p>
+            
+            <input type="password" id="neuroPassword" placeholder="Contraseña..." class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-brandBlue mb-4 text-center">
+            
+            <button onclick="checkPassword()" class="w-full py-3 bg-brandBlue text-white font-bold rounded-lg hover:bg-blue-600 transition">
+                Ingresar
+            </button>
+            <p id="errorMsg" class="text-red-500 text-xs mt-3 hidden font-bold"><i class="fas fa-exclamation-circle"></i> Contraseña incorrecta</p>
+        </div>
+    </div>
+
+    <script>
+        // Funciones para Modales de Servicios
+        function openModal(id) {
+            document.getElementById(id).classList.add('active');
+        }
+        function closeModal(id) {
+            document.getElementById(id).classList.remove('active');
+        }
+
+        // Funciones para Modal Neuro Salto
+        function openNeuroModal() {
+            document.getElementById('modal-neuro').classList.add('active');
+            document.getElementById('neuroPassword').value = '';
+            document.getElementById('errorMsg').classList.add('hidden');
+            document.getElementById('neuroPassword').focus();
+        }
+
+        function closeNeuroModal() {
+            document.getElementById('modal-neuro').classList.remove('active');
+        }
+
+        function checkPassword() {
+            const pass = document.getElementById('neuroPassword').value;
+            const errorMsg = document.getElementById('errorMsg');
+            const targetUrl = "https://script.google.com/macros/s/AKfycbxw515QD3g1QhskIRDKJhHHodv2ztgaun4p4fKNwhVcQbDShi83UgKOUigIXF1959XhZQ/exec";
+
+            if (pass === "tamizaje2026") {
+                window.location.href = targetUrl;
+            } else {
+                errorMsg.classList.remove('hidden');
+                // Shake effect animation trigger could go here
+                document.getElementById('neuroPassword').classList.add('border-red-500');
+            }
+        }
+
+        // Permitir Enter para enviar contraseña
+        document.getElementById('neuroPassword').addEventListener('keypress', function (e) {
+            if (e.key === 'Enter') {
+                checkPassword();
+            }
+        });
+
+        // Cerrar modales al hacer click fuera
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal')) {
+                event.target.classList.remove('active');
+            }
+        }
+    </script>
+</body>
+</html>

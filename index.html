@@ -184,79 +184,97 @@
         </div>
     </section>
 
-    <!-- Tabla de Planes -->
-    <section id="planes" class="py-16 bg-white">
-        <div class="max-w-7xl mx-auto px-4">
-            <div class="text-center mb-12">
-                <h3 class="font-heading text-3xl font-bold text-gray-800">Elige tu Plan Ideal</h3>
-                <p class="text-gray-500 mt-2">Inversión en el futuro de tu familia</p>
-            </div>
 
-            <div class="table-container rounded-2xl shadow-lg border border-gray-100 overflow-hidden">
-                <table class="w-full text-left border-collapse">
-                    <thead>
-                        <tr class="bg-gray-800 text-white text-sm uppercase tracking-wider">
-                            <th class="p-4 font-semibold">Beneficio</th>
-                            <th class="p-4 font-semibold bg-gray-700">Plan Base</th>
-                            <th class="p-4 font-semibold bg-brandPink relative">
-                                Plan Bienestar
-                                <span class="absolute top-0 right-0 bg-yellow-400 text-black text-[10px] px-2 py-1 font-bold">RECOMENDADO</span>
-                            </th>
-                            <th class="p-4 font-semibold bg-brandBlue">Plan Élite Integral</th>
-                        </tr>
-                    </thead>
-                    <tbody class="text-sm text-gray-700 divide-y divide-gray-200">
-                        <tr class="bg-gray-50 font-bold">
-                            <td class="p-4">Mensualidad Total</td>
-                            <td class="p-4 text-lg">$60.000</td>
-                            <td class="p-4 text-lg text-brandPink">$75.000</td>
-                            <td class="p-4 text-lg text-brandBlue">$90.000</td>
-                        </tr>
-                        <tr>
-                            <td class="p-4">Tamizaje Neuro-Salto</td>
-                            <td class="p-4"><i class="fas fa-check text-green-500"></i> Incluido</td>
-                            <td class="p-4"><i class="fas fa-check text-green-500"></i> Incluido</td>
-                            <td class="p-4 font-bold text-brandBlue"><i class="fas fa-star"></i> Análisis Profundo</td>
-                        </tr>
-                        <tr>
-                            <td class="p-4">Psicología Individual</td>
-                            <td class="p-4">$40.000 (Adicional)</td>
-                            <td class="p-4 font-bold text-green-600">COSTO $0 (A solicitud)</td>
-                            <td class="p-4 font-bold text-green-600">COSTO $0 (Incluida)</td>
-                        </tr>
-                        <tr>
-                            <td class="p-4">Asesoría Psicopedagógica</td>
-                            <td class="p-4 text-gray-400"><i class="fas fa-times"></i> No incluye</td>
-                            <td class="p-4">1 sesión al mes</td>
-                            <td class="p-4">Acceso Total (4 al mes)</td>
-                        </tr>
-                        <tr>
-                            <td class="p-4">Talleres para Padres</td>
-                            <td class="p-4">1 al semestre</td>
-                            <td class="p-4">3 al semestre</td>
-                            <td class="p-4">3 sem. + 2 Personalizadas</td>
-                        </tr>
-                        <tr>
-                            <td class="p-4">Descuento Inglés</td>
-                            <td class="p-4">Precio Pleno</td>
-                            <td class="p-4">10% Descuento</td>
-                            <td class="p-4">20% Descuento</td>
-                        </tr>
-                        <tr>
-                            <td class="p-4">Eval. Neuropsicológica</td>
-                            <td class="p-4 text-gray-400">No incluye</td>
-                            <td class="p-4">Descuento Especial</td>
-                            <td class="p-4 font-bold">GRATIS (1 vez al año)</td>
-                        </tr>
-                        <tr>
-                            <td class="p-4">Asesoría Legal</td>
-                            <td class="p-4">30 min gratis</td>
-                            <td class="p-4">30 min + 10% desc.</td>
-                            <td class="p-4">30 min + 10% desc.</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+
+
+    <!-- Tabla de Planes -->
+<section id="planes" class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4">
+        <div class="text-center mb-12">
+            <h3 class="font-heading text-3xl font-bold text-gray-800">Elige tu Plan Ideal</h3>
+            <p class="text-gray-500 mt-2">Inversión en el futuro de tu familia</p>
+            <p class="text-xs text-gray-400 mt-2 md:hidden">← Desliza lateralmente para ver todos los planes →</p>
+        </div>
+
+        <div class="table-container rounded-2xl shadow-lg border border-gray-100 overflow-x-auto">
+            
+            <table class="w-full text-left border-collapse min-w-[800px]">
+                <thead>
+                    <tr class="bg-gray-800 text-white text-sm uppercase tracking-wider">
+                        <th class="p-4 font-semibold">Beneficio</th>
+                        <th class="p-4 font-semibold bg-gray-700">Plan Base</th>
+                        <th class="p-4 font-semibold bg-brandPink relative">
+                            Plan Bienestar
+                            <span class="absolute top-0 right-0 bg-yellow-400 text-black text-[10px] px-2 py-1 font-bold">RECOMENDADO</span>
+                        </th>
+                        <th class="p-4 font-semibold bg-brandBlue">Plan Élite Integral</th>
+                    </tr>
+                </thead>
+                <tbody class="text-sm text-gray-700 divide-y divide-gray-200">
+                    <tr class="bg-gray-50 font-bold">
+                        <td class="p-4">Mensualidad Total</td>
+                        <td class="p-4 text-lg">$60.000</td>
+                        <td class="p-4 text-lg text-brandPink">$75.000</td>
+                        <td class="p-4 text-lg text-brandBlue">$90.000</td>
+                    </tr>
+                    <tr>
+                        <td class="p-4">Tamizaje Neuro-Salto</td>
+                        <td class="p-4"><i class="fas fa-check text-green-500"></i> Incluido</td>
+                        <td class="p-4"><i class="fas fa-check text-green-500"></i> Incluido</td>
+                        <td class="p-4 font-bold text-brandBlue"><i class="fas fa-star"></i> Análisis Profundo</td>
+                    </tr>
+                    <tr>
+                        <td class="p-4">Psicología Individual</td>
+                        <td class="p-4">$40.000 (Adicional)</td>
+                        <td class="p-4 font-bold text-green-600">COSTO $0 (A solicitud)</td>
+                        <td class="p-4 font-bold text-green-600">COSTO $0 (Incluida)</td>
+                    </tr>
+                    <tr>
+                        <td class="p-4">Asesoría Psicopedagógica</td>
+                        <td class="p-4 text-gray-400"><i class="fas fa-times"></i> No incluye</td>
+                        <td class="p-4">1 sesión al mes</td>
+                        <td class="p-4">Acceso Total (4 al mes)</td>
+                    </tr>
+                    <tr>
+                        <td class="p-4">Talleres para Padres</td>
+                        <td class="p-4">1 al semestre</td>
+                        <td class="p-4">3 al semestre</td>
+                        <td class="p-4">3 sem. + 2 Personalizadas</td>
+                    </tr>
+                    <tr>
+                        <td class="p-4">Descuento Inglés</td>
+                        <td class="p-4">Precio Pleno</td>
+                        <td class="p-4">10% Descuento</td>
+                        <td class="p-4">20% Descuento</td>
+                    </tr>
+                    <tr>
+                        <td class="p-4">Eval. Neuropsicológica</td>
+                        <td class="p-4 text-gray-400">No incluye</td>
+                        <td class="p-4">Descuento Especial</td>
+                        <td class="p-4 font-bold">GRATIS (1 vez al año)</td>
+                    </tr>
+                    <tr>
+                        <td class="p-4">Asesoría Legal</td>
+                        <td class="p-4">1 gratis</td>
+                        <td class="p-4">1 gratis + 10% desc.</td>
+                        <td class="p-4">1 gratis + 10% desc.</td>
+                    </tr>
+
+
+<tr>
+                        <td class="p-4">Gimnasio Progress Training</td>
+                        <td class="p-4">No incluye.</td>
+                        <td class="p-4">Mensualidad con Desc.</td>
+                        <td class="p-4">Descuento u <br> Opción de Tiquetera con <br> precio especial.</td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
+
 
             <!-- Mobile Plan Tip -->
             <div class="mt-8 bg-blue-50 p-6 rounded-xl border border-blue-100">
@@ -266,6 +284,11 @@
             </div>
         </div>
     </section>
+
+
+
+
+
 
     <!-- Neuro Salto Section -->
     <section class="py-20 bg-gray-900 text-white relative overflow-hidden">
@@ -286,6 +309,10 @@
             </button>
         </div>
     </section>
+
+
+
+
 
     <!-- Contacto Section -->
     <section id="contacto" class="py-16 bg-white">
@@ -408,13 +435,58 @@
 
     <!-- Modal Servicio: Legal -->
     <div id="modal-legal" class="modal fixed inset-0 z-50 flex items-center justify-center p-4 bg-black bg-opacity-50">
-        <div class="modal-content bg-white rounded-2xl shadow-2xl max-w-md w-full p-6 relative">
-            <button onclick="closeModal('modal-legal')" class="absolute top-4 right-4 text-gray-400 hover:text-gray-800"><i class="fas fa-times text-xl"></i></button>
-            <div class="text-brandBlue text-3xl mb-4"><i class="fas fa-scale-balanced"></i></div>
-            <h3 class="font-heading text-xl font-bold mb-2">Respaldo Legal y Físico</h3>
-            <p class="text-gray-600">Asesorías legales gratuitas para la familia y convenios con Progress Trainning para que los padres también mantengan un estilo de vida saludable.</p>
+    <div class="modal-content bg-white rounded-2xl shadow-2xl max-w-lg w-full p-8 relative">
+        <button onclick="closeModal('modal-legal')" class="absolute top-4 right-4 text-gray-400 hover:text-gray-800 transition-colors">
+            <i class="fas fa-times text-xl"></i>
+        </button>
+
+        <h3 class="font-heading text-2xl font-bold mb-6 text-center text-gray-800">Respaldo Integral</h3>
+
+        <div class="space-y-6">
+            <div class="flex gap-4">
+                <div class="text-brandBlue text-2xl shrink-0"><i class="fas fa-scale-balanced"></i></div>
+                <div>
+                    <h4 class="font-bold text-lg text-brandBlue mb-1">Asesoría Legal Especializada</h4>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        Contamos con convenio con una firma de abogados experta en: 
+                        <span class="font-semibold text-gray-700">Sucesiones, cambios de nombre, derecho laboral, responsabilidad médica, insolvencia, divorcios e indemnizaciones.</span>
+                    </p>
+                </div>
+            </div>
+
+            <hr class="border-gray-100">
+
+            <div class="flex gap-4">
+                <div class="text-red-500 text-2xl shrink-0"><i class="fas fa-dumbbell"></i></div>
+                <div>
+                    <h4 class="font-bold text-lg text-red-600 mb-1">Progress Training: Desata tu Potencial</h4>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        ¡No solo los pequeños crecen, tú también! Transforma tu cuerpo y recupera tu energía con nuestro convenio exclusivo. 
+                        <span class="block mt-2 font-bold text-gray-800">¡Tu mejor versión te está esperando, entrena como un campeón!</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-8">
+            <button onclick="closeModal('modal-legal')" class="w-full bg-brandBlue text-white font-bold py-3 rounded-xl hover:bg-blue-700 transition-all shadow-lg">
+                ¡Quiero saber más!
+            </button>
         </div>
     </div>
+</div>
+
+
+
+
+
+
+           
+
+
+
+
+
 
     <!-- Modal PASSWORD Neuro Salto -->
     <div id="modal-neuro" class="modal fixed inset-0 z-50 flex items-center justify-center p-4 bg-black bg-opacity-80 backdrop-blur-sm">

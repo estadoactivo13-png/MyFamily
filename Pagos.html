@@ -293,14 +293,46 @@
 
 
 
-  .iframe-container iframe {
-        position: absolute;
-        top: 0;
-        left: 0;
+ /* Contenedor principal del formulario */
+.contenedor-formulario {
+    width: 95%;
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 15px;
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+/* Contenedor del Iframe (Truco para responsividad) */
+.iframe-container {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    /* Ajusta este valor (pixels) según qué tan largo sea tu formulario de Google */
+    height: 800px; 
+}
+
+.iframe-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* Ajustes para Celulares */
+@media (max-width: 600px) {
+    .contenedor-formulario {
         width: 100%;
-        height: 100%;
-        border: none;
+        padding: 10px;
+        box-shadow: none; /* Quitamos sombra en móvil para simplificar */
     }
+    .iframe-container {
+        height: 1000px; /* En móvil los formularios suelen estirarse más */
+    }
+}
 
 
 
@@ -358,20 +390,17 @@ Recuerda que tenemos distintos planes para tu familia, cada uno con beneficios p
 <p/> <br><br>
             
  <!-- FORMULARIO PAGO -- ">
-
 <div id="seccion-pagos" class="contenedor-formulario">
-    <h4 style="font-weight: bold; margin-bottom: 10px; text-align: center;">
-    <i class="fas fa-lightbulb"></i> Formulario de Pagos
-</h4>
-    
+    <h4 style="font-weight: bold; margin-bottom: 20px; text-align: center;">
+        <i class="fas fa-lightbulb"></i> Formulario de Pagos
+    </h4>
     
     <div class="iframe-container">
         <iframe 
             src="https://script.google.com/macros/s/AKfycbyctBU7HnuLX2OLWCh2XfZhoJ5PrS3oHM20ykSWy-QRa3xwzoVnE7PDHB7N8JkhA7MmhA/exec"
-            scrolling="no">
+            allowfullscreen>
         </iframe>
     </div>
-</div>
 </div>
 
 
@@ -426,3 +455,4 @@ Recuerda que tenemos distintos planes para tu familia, cada uno con beneficios p
 </body>
 
 </html>
+

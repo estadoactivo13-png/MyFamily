@@ -379,32 +379,48 @@
     </section>
 
    
-    <!-- =========================== PAGOS =========================== -->
-    <section id="actualidad">
-        <div class="container">
-            <h2 class="section-title">Realiza tu pago y envia el comprobante</h2>
-            <p>Realiza tu pago a la cuenta de ahorros de Bancolombia N° 42 073 768 572, luego envia el comprobante de pago por medio del siguiente formulario y guarda el número recibo que se muestra al final, es tu respaldo y el nuestro.
-<br><br>
-Recuerda que tenemos distintos planes para tu familia, cada uno con beneficios pensados para tu bienestar. Revisalos ingresando al enlace de "SERVICIOS". No te los puedes perder
+   <section id="actualidad">
+    <div class="container">
+        <h2 class="section-title">Realiza tu pago y envía el comprobante</h2>
+        
+        <p>
+            Realiza tu pago a la cuenta de ahorros de Bancolombia N° 42 073 768 572, luego envía el comprobante de pago por medio del siguiente formulario y guarda el número recibo que se muestra al final, es tu respaldo y el nuestro.
+            <br><br>
+            Recuerda que tenemos distintos planes para tu familia, cada uno con beneficios pensados para tu bienestar. Revísalos ingresando al enlace de "SERVICIOS". No te los puedes perder.
+        </p>
 
-<p/> <br><br>
+        <div id="seccion-pagos" class="contenedor-formulario">
+            <h4 style="font-weight: bold; margin-bottom: 20px; text-align: center;">
+                <i class="fas fa-lightbulb"></i> Formulario de Pagos
+            </h4>
             
- <!-- FORMULARIO PAGO -- ">
-<div id="seccion-pagos" class="contenedor-formulario">
-    <h4 style="font-weight: bold; margin-bottom: 20px; text-align: center;">
-        <i class="fas fa-lightbulb"></i> Formulario de Pagos
-    </h4>
-    
-    <div class="iframe-container">
-        <iframe 
-            src="https://script.google.com/macros/s/AKfycbyctBU7HnuLX2OLWCh2XfZhoJ5PrS3oHM20ykSWy-QRa3xwzoVnE7PDHB7N8JkhA7MmhA/exec"
-            allowfullscreen>
-        </iframe>
-    </div>
-</div>
+            <div class="iframe-container">
+                <iframe 
+                    src="https://script.google.com/macros/s/AKfycbyctBU7HnuLX2OLWCh2XfZhoJ5PrS3oHM20ykSWy-QRa3xwzoVnE7PDHB7N8JkhA7MmhA/exec"
+                    style="width: 100%; height: 800px; border: none;"
+                    allowfullscreen>
+                </iframe>
+            </div>
+        </div>
+    </div> </section> ```
 
-    </section>
+---
 
+### ¿Qué corregí exactamente?
+
+1.  **El error del comentario:** Cambié ``. Ese `">` sobrante hacía que el navegador creyera que el formulario era parte de un texto perdido.
+2.  **Etiquetas `<p>`:** Tenías un `<p/>` al final (que es incorrecto en HTML estándar) y faltaba cerrar el contenedor principal de texto.
+3.  **Cierre de etiquetas:** Faltaba cerrar el `</div>` del "container" y la propia `<section>`. Cuando dejas etiquetas abiertas, el diseño "colapsa" y las cosas desaparecen.
+4.  **Dimensiones del Iframe:** Le añadí directamente `style="width: 100%; height: 800px;"` para asegurar que el navegador le asigne espacio suficiente de inmediato.
+
+
+
+---
+
+### Una última nota importante:
+Si después de pegar este código sigues sin verlo, intenta abrir tu página en una **ventana de incógnito**. A veces el navegador guarda una versión "dañada" en la memoria (caché) y no muestra los cambios nuevos.
+
+**¿Te gustaría que te ayude a revisar si el resto de la página tiene etiquetas abiertas que puedan estar causando conflictos?**
     
     <!-- =========================== FOOTER =========================== -->
     <footer>
@@ -448,5 +464,6 @@ Recuerda que tenemos distintos planes para tu familia, cada uno con beneficios p
 </body>
 
 </html>
+
 
 

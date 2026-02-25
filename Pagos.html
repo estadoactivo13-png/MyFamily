@@ -402,25 +402,7 @@
                 </iframe>
             </div>
         </div>
-    </div> </section> ```
-
----
-
-### ¿Qué corregí exactamente?
-
-1.  **El error del comentario:** Cambié ``. Ese `">` sobrante hacía que el navegador creyera que el formulario era parte de un texto perdido.
-2.  **Etiquetas `<p>`:** Tenías un `<p/>` al final (que es incorrecto en HTML estándar) y faltaba cerrar el contenedor principal de texto.
-3.  **Cierre de etiquetas:** Faltaba cerrar el `</div>` del "container" y la propia `<section>`. Cuando dejas etiquetas abiertas, el diseño "colapsa" y las cosas desaparecen.
-4.  **Dimensiones del Iframe:** Le añadí directamente `style="width: 100%; height: 800px;"` para asegurar que el navegador le asigne espacio suficiente de inmediato.
-
-
-
----
-
-### Una última nota importante:
-Si después de pegar este código sigues sin verlo, intenta abrir tu página en una **ventana de incógnito**. A veces el navegador guarda una versión "dañada" en la memoria (caché) y no muestra los cambios nuevos.
-
-**¿Te gustaría que te ayude a revisar si el resto de la página tiene etiquetas abiertas que puedan estar causando conflictos?**
+    </div> </section> 
     
     <!-- =========================== FOOTER =========================== -->
     <footer>
@@ -464,6 +446,7 @@ Si después de pegar este código sigues sin verlo, intenta abrir tu página en 
 </body>
 
 </html>
+
 
 
 

@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Corporación Deportiva y Recreativa My Family</title>
+    
+    <!-- Fuente Google Fonts: Montserrat (Profesional y moderna) -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Iconos (FontAwesome para la casita y redes) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <style>
+        /* --- VARIABLES DE COLOR --- */
+        :root {
+            --primary: #E62E84; /* Rosa */
+            --secondary: #3ABBDD; /* Azul */
+            --dark: #2c3e50;
+            --light: #f9f9f9;
+            --white: #ffffff;
+            --shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        /* --- ESTILOS GENERALES --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        
+
+        a { text-decoration: none; color: inherit; transition: 0.3s; }
+        ul { list-style: none; }
+        img, iframe, video, table { max-width: 100%; height: auto; display: block; }
+
+        /* Contenedor general para centrar contenido */
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        /* Títulos de sección */
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: var(--primary);
+            position: relative;
+            font-weight: 700;
+        }
+        
+        /* Línea decorativa bajo títulos */
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: var(--secondary);
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+        /* Espaciado entre secciones */
+        section {
+            padding: 80px 0;
+            border-bottom: 1px solid #eee; /* Línea sutil separadora */
+        }
+
+        /* --- HEADER / MENÚ --- */
+        header {
+            background: var(--white);
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 10px 0;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-img {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            object-fit: cover;
+            /* Se eliminó el borde rosa para un look más limpio */
+        }
+
+        .brand-name {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--primary);
+            line-height: 1.2;
+            display: none; /* Oculto en móviles muy pequeños, visible en desktop */
+        }
+        @media(min-width: 768px) { .brand-name { display: block; } }
+
+        nav ul {
+            display: flex;
+            gap: 20px;
+        }
+
+        nav a {
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: var(--dark);
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary);
+        }
+
+        /* Icono Home */
+        .home-icon { font-size: 1.2rem; }
+
+        /* Menú Móvil */
+        .menu-toggle { display: none; font-size: 1.5rem; cursor: pointer; color: var(--primary); }
+
+        @media (max-width: 768px) {
+            .menu-toggle { display: block; }
+            nav ul {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--white);
+                flex-direction: column;
+                text-align: center;
+                padding: 20px 0;
+                box-shadow: var(--shadow);
+            }
+            nav ul.show { display: flex; }
+            nav li { margin: 10px 0; }
+        }
+
+        /* --- BOTÓN PULSATING (HERO) --- */
+        .cta-button {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 15px 40px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            box-shadow: 0 0 0 0 rgba(230, 46, 132, 0.7);
+            animation: pulse-pink 2s infinite;
+            margin-top: 20px;
+        }
+
+        .cta-button:hover {
+            background: var(--secondary);
+            animation: none;
+        }
+
+        @keyframes pulse-pink {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(230, 46, 132, 0.7); }
+            70% { transform: scale(1); box-shadow: 0 0 0 20px rgba(230, 46, 132, 0); }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(230, 46, 132, 0); }
+        }
+
+        /* --- SECCIÓN HERO (INICIO) --- */
+        #inicio {
+            /* Degradado overlay para legibilidad + Imagen de fondo */
+            background: linear-gradient(rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.85)), url('fondo.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed; /* Efecto Parallax suave */
+            text-align: center;
+            padding: 140px 0;
+        }
+
+        /* Nota para el usuario: Para usar su propia imagen, cambiar la URL de arriba por 'fondo.png' */
+
+        .hero-content h1 {
+            font-size: 3.2rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+            line-height: 1.1;
+            font-weight: 700;
+            text-shadow: 1px 1px 0px rgba(255,255,255,0.5);
+        }
+
+        .hero-content p {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto 30px;
+            color: var(--dark);
+            font-weight: 400;
+        }
+
+       
+
+       
+        /* --- FOOTER --- */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 60px 0 30px;
+            text-align: center;
+        }
+
+        .dev-credits {
+            margin-top: 30px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #ccc;
+            font-size: 0.85rem;
+        }
+
+        .dev-whatsapp {
+            display: inline-flex;
+            align-items: center;
+            color: #25D366;
+            margin-left: 10px;
+            font-weight: 700;
+            padding: 5px 12px;
+            border: 1px solid #25D366;
+            border-radius: 20px;
+        }
+        .dev-whatsapp:hover { background: #25D366; color: white; }
+
+
+
+/* ESTILO DE ESTA SUB PAGINA HV    Eliminamos los márgenes por defecto del navegador */
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+            overflow: hidden; /* Evita doble scroll (el de la web y el del iframe) */
+        }
+
+        /* Contenedor responsivo */
+        .iframe-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+
+
+    </style>
+</head>
+<body>
+
+    <!-- =========================== HEADER =========================== -->
+    <header>
+        <div class="container nav-container">
+            <div class="logo-container">
+                <!-- LOGO REDONDO SIN BORDE -->
+                <img src="Logo MyFamily.png" alt="Logo My Family" class="logo-img" onerror="this.src='https://via.placeholder.com/90?text=Logo'">
+                <div class="brand-name">
+                    Corporación Deportiva<br>y Recreativa My Family
+                </div>
+            </div>
+
+            <div class="menu-toggle" onclick="toggleMenu()">
+                <i class="fas fa-bars"></i>
+            </div>
+
+            <nav>
+                <ul id="nav-menu">
+                    <!-- ENLACES CORREGIDOS A ARCHIVOS INDEPENDIENTES -->
+                    <li><a href="index.html" class="active"><i class="fas fa-home home-icon"></i></a></li>
+  
+<li><a href="servicios.html">Servicios</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- =========================== INICIO (HERO) =========================== -->
+    <section id="inicio">
+        <div class="container hero-content">
+            <h1>Corporación Deportiva y<br>Recreativa My Family</h1>
+            <p>Pasión por el patinaje, compromiso con la excelencia y un ambiente familiar que nos hace únicos.</p>
+            
+            <a href="servicios.html" class="cta-button">Conoce nuestros servicios</a>
+        </div>
+    </section>
+
+   
+    <!-- =========================== FORMULARIO HV =========================== -->
+    
+
+
+     <div class="iframe-container">
+        <iframe 
+            src="https://script.google.com/macros/s/AKfycbzsqI-Ht6QwGNZUR1cqo0B7V4xGKlKlg6g8dRuK_UZrBRNh9eL9EymYj_Xaw1_A-iSa/exec" 
+            allow="geolocation; microphone; camera">
+        </iframe>
+    </div>       
+
+
+
+    
+    <!-- =========================== FOOTER =========================== -->
+    <footer>
+        <div class="container">
+            <h3>Corporación Deportiva y Recreativa My Family</h3>
+            <p>Uniendo familias a través del patinaje.</p>
+            
+            <div class="dev-credits">
+               Nit <strong>9015855174</strong> | Desarrollado por <strong>Andres Urrea</strong> - Desarrollador Multimedia y Web
+                <a href="https://wa.me/56930763222" target="_blank" class="dev-whatsapp">
+                    <i class="fab fa-whatsapp"></i> +56930763222
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            var menu = document.getElementById("nav-menu");
+            menu.classList.toggle("show");
+        }
+
+        let slideIndex = 1;
+        showSlides(slideIndex);
+
+        function plusSlides(n) { showSlides(slideIndex += n); }
+
+        function showSlides(n) {
+            let i;
+            let slides = document.getElementsByClassName("gallery-slide");
+            if (n > slides.length) {slideIndex = 1}    
+            if (n < 1) {slideIndex = slides.length}
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+                slides[i].classList.remove("active");
+            }
+            slides[slideIndex-1].style.display = "block";  
+            slides[slideIndex-1].classList.add("active");
+        }
+    </script>
+</body>
+</html>
